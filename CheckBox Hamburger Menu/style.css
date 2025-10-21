@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     font-family: "Poppins", sans-serif;
+}
+
+ul,
+ol {
+     list-style-type: none;
+}
+
+a {
+     text-decoration: none;
+     display: block;
+}
+
+
+
+#hamburgerCheck {
+     display: none;
+}
+
+.nav-container {
+     background-color: rgb(18, 18, 24);
+     height: auto;
+     max-width: 1200px;
+     margin: 0 auto;
+}
+
+.nav {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     position: relative;
+}
+
+.nav h1 {
+     color: #fff;
+     margin-left: 10px;
+}
+
+.navList {
+     display: flex;
+     align-items: center;
+     transition: 0.3s all;
+}
+
+.navList li {
+     padding: 10px;
+
+}
+
+.navList a {
+     color: #fff;
+     border: 1px solid;
+     border-radius: 10px;
+     padding: 4px 10px;
+     transition: 0.3s all;
+}
+
+.navList a:hover {
+     background-color: hsl(0, 5%, 22%);
+}
+
+.navList a:active {
+     background-color: hsl(0, 0%, 68%);
+}
+
+.hamburger {
+     position: relative;
+     width: 30px;
+     height: 4px;
+     background-color: #fff;
+     margin-left: 10px;
+     cursor: pointer;
+     border-radius: 4px;
+
+}
+
+.hamburger::before,
+.hamburger::after {
+     content: "";
+     width: 30px;
+     height: 4px;
+     position: absolute;
+     background-color: #fff;
+     border-radius: 4px;
+     transition: 0.3s all ease;
+}
+
+.hamburger::after {
+     top: 10px;
+
+}
+
+.hamburger::before {
+     top: -10px;
+
+}
+
+.hamburger {
+     display: none;
+}
+
+#hamburgerCheck:checked+.hamburger {
+     background: transparent;
+}
+
+#hamburgerCheck:checked+.hamburger::before {
+     transform: rotate(-45deg);
+     top: 0;
+}
+
+#hamburgerCheck:checked+.hamburger::after {
+     transform: rotate(45deg);
+     top: 0;
+}
+
+@media screen and (max-width:768px) {
+     .hamburger {
+          display: flex;
+          margin-right: 20px;
+     }
+
+     .navList {
+          background-color: rgb(18, 18, 24);
+          position: absolute;
+          top: 45px;
+          right: 2px;
+          flex-direction: column;
+          width: 200px;
+          border-radius: 8px;
+          opacity: 0;
+          visibility: hidden;
+     }
+
+     .navList li {
+          width: 100%;
+          text-align: right;
+     }
+
+
+
+     #hamburgerCheck:checked~.navList {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(5px);
+     }
+}

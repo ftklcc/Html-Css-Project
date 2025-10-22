@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50ch;
+}
+
+#flip {
+    display: none;
+}
+
+.card {
+    width: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+
+    object-fit: cover;
+}
+
+.front,
+.back {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    backface-visibility: hidden;
+    transition: 1s all;
+    box-shadow: 0 0 10px 1px black;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+
+.back {
+    transform: rotateX(180deg);
+}
+
+#flip:checked+.card .front {
+    transform: rotateX(-180deg);
+}
+
+#flip:checked+.card .back {
+    transform: rotateX(0);
+}

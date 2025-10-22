@@ -1,0 +1,46 @@
+:root {
+    --circle-size: 40px;
+    --toggle-width: 150px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.toggle-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(40, 42, 53);
+}
+
+.toggle-wrapper label {
+    width: var(--toggle-width);
+    height: var(--circle-size);
+    border: 3px solid rgb(2, 0, 0);
+    border-radius: 40px;
+    background-color: #fefafa;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#toggle-swtich {
+    display: none;
+}
+
+.toggle {
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border-radius: 50%;
+    transition: 0.5s all;
+    background-color: rgb(99, 19, 19);
+    box-shadow: 0 0 4px black;
+}
+
+#toggle-swtich:checked+.toggle {
+    transform: translate(calc(var(--toggle-width) - var(--circle-size)));
+    background-color: rgb(19, 114, 19);
+}
